@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/animations.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+<body>
+    <div id="main">
+        <div class="start cover">
+            <div class="dialog">
+                <div class="dialog-header">
+                    <img class="logo" src="assets/images/logo/logo.png" alt="logo" >
+                    <p class="dialog-title">Star Battle</p>
+                </div>
+                <div class="dialog-footer">
+                    
+                    <button class="btn btn-how hidden" onclick="$('.how-to').fadeIn(500)">How to Play</button>
+                    <button class="btn btn-start hidden">Start Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="how-to hidden">
+            <p style="text-align: right; color: #f00; cursor: pointer;" onclick="$(this).parent().remove();">X</p>
+            <p>How to Play Star Battle.</p>
+            <p>1. Move the spaceship using the sensible areas in the screen;</p>
+            <p>2. The timer present the time lapsed;</p>
+            <p>3. The fuel counter show the remain fuel;</p>
+            <p>4. During the flight, the spaceship needs to destroy the asteroids and enemy spaceships that are presented in the space;</p>
+            <p>5. You can shoot pressing Space Bar;</p>
+            <p>6. If the spaceship hits a asteroid or another spaceship, you lose 15 points of fuel;</p>
+            <p>7. Enemy spaceship needs 1 shot to be destroyed, you will get 5 points for each enemy destroyed;</p>
+            <p>8. Asteroid needs 2 shots to be destroyed, you will get 10 points for each asteroid destroyed;</p>
+            <p>9. If you destroy a friendly spaceship, you lose 10 points;</p>
+            <p>10. During the flight, the spaceship needs to collect fuel in the space;</p>
+            <p>11. You can pause the game clicking in a button pause, or pressing the letter "p";</p>
+            <p>12. Go beyond all limits;</p>
+            <p>Battle in Space with Star Battle Championship...</p>
+        </div>
+        <div class="end cover hidden">
+            <div class="dialog">
+                <div class="dialog-header">
+                    <img class="logo" src="assets/images/logo/logo.png" alt="logo" >
+                    <p class="dialog-title">Input Your Name</p>
+                </div>
+                <div class="dialog-body">
+                    <input name="name" type="text" class="w-100 input"/>
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn btn-inputname w-100" disabled>Continue</button>
+                </div>
+            </div>
+            <div class="dialog dialog-rank hidden">
+                <div class="dialog-header">
+                    <img class="logo" src="assets/images/logo/logo.png" alt="logo" >
+                    <p class="dialog-title">Ranking Table</p>
+                </div>
+                <div class="dialog-body">
+                    <div class="ranking-table-box">
+                        <table class="ranking-table">
+                            <thead>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dialog-footer">
+                    <button class="btn" onclick="window.location.reload();">Start Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="pause cover hidden"></div>
+        <div class="roles">
+            <img id="ship" class="ship" height="50" src="assets/images/ship_stop.svg" alt="ship"/>
+        </div>
+        <div class="temps hidden">
+            <img class="planet" height="100" src="assets/images/planets/1.png" alt="planet"/>
+            <img class="planet" height="100" src="assets/images/planets/2.png" alt="planet"/>
+            <img class="planet" height="100" src="assets/images/planets/3.png" alt="planet"/>
+            <img class="planet" height="100" src="assets/images/planets/4.png" alt="planet"/>
+            <img class="planet" height="100" src="assets/images/planets/5.png" alt="planet"/>
+            <img class="planet" height="60" src="assets/images/planets/6.png" alt="planet"/>
+            <img class="planet" height="60" src="assets/images/planets/7.png" alt="planet"/>
+            <img class="planet" height="60" src="assets/images/planets/8.png" alt="planet"/>
+            <img class="planet" height="60" src="assets/images/planets/9.png" alt="planet"/>
+            <img class="planet" height="40" src="assets/images/planets/10.png" alt="planet"/>
+            <img class="planet" height="40" src="assets/images/planets/11.png" alt="planet"/>
+            <img class="planet" height="40" src="assets/images/planets/12.png" alt="planet"/>
+            <img class="friend" height="80"  src="assets/images/friend_01.png" alt="friend"/>
+            <img class="friend" height="80"  src="assets/images/friend_02.png" alt="friend"/>
+            <img class="friend" height="80"  src="assets/images/friend_03.png" alt="friend"/>
+            <img class="friend" height="80"  src="assets/images/friend_04.png" alt="friend"/>
+            <img class="enemy"  height="80" src="assets/images/enemy_01.png" alt="enemy"/>
+            <img class="enemy"  height="80" src="assets/images/enemy_02.png" alt="enemy"/>
+            <img class="enemy"  height="80" src="assets/images/enemy_03.png" alt="enemy"/>
+            <img class="enemy"  height="80" src="assets/images/enemy_04.png" alt="enemy"/>
+            <img class="rock" height="80" src="assets/images/rock.png" alt="rock"/>
+            <img class="rock" height="80" src="assets/images/rock_broken.png" alt="rock"/>
+            <img class="ship" src="assets/images/ship.svg" alt="ship"/>
+            
+            <img class="sound" src="assets/images/sound-off.png" alt="sound"/>
+            <img class="fuel" height="50" src="assets/images/fuel.png" alt="fuel"/>
+
+            <!-- <img class="" src="assets/images/" alt=""/>
+            <img class="" src="assets/images/" alt=""/>
+            <img class="" src="assets/images/" alt=""/>
+            <img class="" src="assets/images/" alt=""/> -->
+        </div>
+        <div class="top">
+            <div class="t-score">
+                <span>0</span>
+            </div>
+            <div class="t-fuel">
+                <span>15</span>
+                
+            </div>
+            <div class="t-logo">
+                <img class="logo" src="assets/images/logo/logo.png" alt="logo" >
+            </div>
+            <div class="t-pause">
+                <div class="pause-on"></div>
+                <div class="pause-off"></div>
+            </div>
+            <div class="t-time">
+                <span>00:00</span>
+            </div>
+            <div class="t-sound">
+                <img class="sound" height="30" src="assets/images/sound-on.png" alt="sound"/>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="font-1">-&nbsp;&nbsp;&nbsp;FONT&nbsp;</div><!--
+            --><div class="font-2">&nbsp;SIZE&nbsp;&nbsp;&nbsp;+</div>
+            <div class="s-area">
+                <div class="s-up"></div>
+                <div class="s-down"></div>
+                <div class="s-left"></div>
+                <div class="s-right"></div>
+                <div class="s-center"></div>
+                <div class="s-point"></div>
+                <div class="s-cover"></div>
+            </div>
+            <div class="s-fire">FIRE</div>
+        </div>
+    </div>
+</body>
+</html>

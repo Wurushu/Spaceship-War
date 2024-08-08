@@ -1,0 +1,442 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    user-select: none;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    font-size: 24px;
+    font-family: sans-serif;
+}
+#main{
+    position: relative;
+    width: 960px;
+    height: 600px;
+    box-shadow: 0 0 30px 0 rgba(222, 222, 222, .1);
+    background-image: url('../images/background.jpg');
+    background-position: 0 0;
+    background-size: cover;
+    overflow: hidden;
+}
+#main.shake{
+    animation: shake .2s linear;
+}
+
+.cover{
+    position: absolute;
+    width: 960px;
+    height: 600px;
+    background-color: rgba(133, 133, 133, .2);
+}
+.start{
+    z-index: 25;
+}
+.end{
+    z-index: 25;
+}
+.cover.end{
+    background-color: rgba(199, 133, 133, .2);
+}
+.cover.pause{
+    z-index: 18;
+}
+.dialog{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    z-index: 35;
+}
+.dialog-header{
+    text-align: center;
+    border-bottom: 2px #000 solid;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+.dialog-header>*{
+    vertical-align: middle;
+}
+.dialog-body{
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.dialog-footer{
+    text-align: center;
+}
+.dialog-title{
+    display: inline-block;
+    font-weight: bold;
+}
+
+
+.planet{
+    filter: brightness(.3);
+}
+#ship{
+    position: absolute;
+    top: 48%;
+    left: 0;
+    z-index: 15;
+}
+.roles>*{
+    position: absolute;
+    z-index: 14;
+}
+
+.s-area{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+    background-color: rgb(0, 150, 255);
+    opacity: .6;
+    width: 100px;
+    height: 100px;
+    
+}
+.s-area:hover{
+    opacity: .8
+}
+.s-area>div{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px #fff solid;
+    width: 10px;
+    height: 10px;
+}
+.s-area>.s-cover{
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    z-index: 1;
+    border: none;
+    transform: none;
+}
+.s-area>.s-center{
+    border-radius: 100%;
+}
+.s-area>.s-point{
+    border-radius: 100%;
+    background-color: #f19e0d;
+    border: none;
+}
+.s-area>.s-up{
+    top: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    border-bottom: none;
+    border-right: none;
+}
+.s-area>.s-down{
+    top: auto;
+    bottom: 10px;
+    transform: translateX(-50%) rotate(225deg);
+    border-bottom: none;
+    border-right: none;
+    
+}
+.s-area>.s-left{
+    left: 10px;
+    transform: translateY(-50%) rotate(315deg);
+    border-bottom: none;
+    border-right: none;
+    
+}
+.s-area>.s-right{
+    left: auto;
+    right: 10px;
+    transform: translateY(-50%) rotate(135deg);
+    border-bottom: none;
+    border-right: none;
+}
+
+.s-fire{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    right: 20px;
+    bottom: 20px;
+    text-align:center;
+    line-height: 80px;
+    background-color: rgb(0, 150, 255);
+    opacity: .6;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+.s-fire:hover{
+    opacity: .8;
+}
+
+.enemy{
+    z-index: 15;
+}
+.friend{
+    z-index: 15;
+}
+.rock{
+    z-index: 15;
+}
+.fuel{
+    z-index: 15;
+    transform-origin: 50% 0;
+    animation: fuel_animation 1.5s linear infinite alternate;
+}
+
+
+
+.top{
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    color: #fff;
+    font-size: .8em;
+}
+.top>div{
+    position: relative;
+    display: inline-block;
+    border-radius: 100%;
+    background-color: rgb(0, 144, 255);
+    border: 2px #f19e0d dashed;
+    width: 60px;
+    height: 60px;
+    vertical-align: top;
+    opacity: .7;
+}
+.top>div:hover{
+    opacity: .9;
+}
+
+.top>.t-score{
+    line-height: 60px;
+}
+.top>.t-fuel{
+    line-height: 60px;
+}
+.top>.t-logo{
+    border: none;
+    background: none;
+    width: auto;
+    height: auto;
+}
+.top>.t-pause{
+    cursor: pointer;
+}
+.top>.t-time{
+    line-height: 60px;
+}
+.top>.t-sound{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: none;
+    background: none;
+}
+
+
+.bottom{
+    position: absolute;
+    z-index: 30;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+}
+.font-1{
+    display: inline-block;
+    height: 100px;
+    width: 180px;
+    background-color: #44f;
+    color: #fff;
+    font-weight: bold;
+    text-align: right;
+    opacity: .6;
+    cursor: pointer;
+    border-top-left-radius: 100%;
+    line-height: 80px;
+}
+.font-1:hover{
+    opacity: .8;
+    background-color: #55f;
+}
+.font-2{
+    display: inline-block;
+    height: 100px;
+    width: 180px;
+    background-color: #f33;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    opacity: .6;
+    cursor: pointer;
+    border-top-right-radius: 100%;
+    line-height: 80px;
+}
+.font-2:hover{
+    opacity: .8;
+    background-color: #f55;
+}
+
+
+#main .hidden{
+    display: none;
+}
+.logo{
+    height: 60px;
+}
+.btn{
+    border: 0;
+    outline: 0;
+    padding: 10px 30px;
+    background-color: #f16e0d;
+    color: #fff;
+    border-radius: 10px;
+    font-size: .8em;
+    cursor: pointer;
+}
+.btn:hover:not([disabled]){
+    background-color: #f19e0d;    
+}
+.btn.btn-start{
+    position: relative;
+}
+.ripple{
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%, -50%);
+    background-color: #fff;
+    animation: ripple_animation .3s linear, ripple_animation2 .4s linear;
+    border-radius: 100%;
+}
+
+.boom{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-color: #700;
+    transform-origin: 50% 50%;
+    animation: boom_animation .1s linear;
+}
+
+.pause-on{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 15px;
+    border: 4px #fff solid;
+    border-top: none;
+    border-bottom: none;
+}
+.pause-off{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-left: 20px #fff solid;
+    border-top: 15px transparent solid;
+    border-bottom: 15px transparent solid;
+}
+.bullet{
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-image: linear-gradient(to right, #ff0 30%, #fff);
+    border-radius: 100%;
+}
+.enemy-bullet{
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-image: linear-gradient(to left, #f00 30%, #fff);
+    border-radius: 100%;
+}
+.w-100{
+    width: 100%;
+}
+.w-80{
+    width: 80%;
+}
+.w-50{
+    width: 50%;
+}
+[disabled]{
+    background-color: #888;
+}
+.input{
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px #000 solid;
+    border-radius: 8px;
+    outline: 0;
+    font-size: .8em;
+}
+
+.ranking-table-box{
+    width: 100%;
+    height: 350px;
+    overflow-y: scroll;
+}
+.ranking-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th, .ranking-table td{
+    border: 1px #000 solid;
+}
+.ranking-table .rank-me{
+    background-color: #f1fe0d;
+}
+.how-to{
+    position: absolute;
+    width: 600px;
+    height: 0px;
+    background-color: #fff;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%); 
+    overflow: hidden;
+    animation: howhow 1s linear forwards;
+    padding: 15px;
+    font-size: .8em;
+}
+@keyframes howhow{
+    from{
+        height: 0;
+        width: 0;
+        opacity: 0;
+        background-color: #0f0;
+    }
+    to{
+        height: 500px;
+        width: 600px;
+        opacity: 1;
+        background-color: #fff;
+    }
+}

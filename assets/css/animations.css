@@ -1,0 +1,78 @@
+@keyframes ripple_animation{
+    from{
+        width: 0;
+        height: 0;
+    }
+    to{
+        width: 70px;
+        height: 70px;
+    }
+}
+@keyframes ripple_animation2{
+    from{
+        opacity: .8;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@keyframes boom_animation{
+    25%{
+        background-color: #300;
+    }
+    50%{
+        background-color: #600;
+    }
+    70%{
+        background-color: #300;
+    }
+    80%{
+        background-color: #500;
+        
+    }
+    100%{
+        display: none;
+    }
+}
+@keyframes fuel_animation{
+    from{
+        transform: rotate(-30deg);
+    }
+    to{
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes shake
+{
+    10%{
+        transform: translateY(-12px);
+    }
+    20%{
+        transform: translateX(12px);
+    }
+    30%{        
+        transform: translateY(12px);
+    }
+    40%{        
+        transform: translateX(-12px);
+    }
+    50%{        
+        transform: translateY(-12px);
+    }
+    60%{        
+        transform: translateX(12px);
+    }
+    70%{        
+        transform: translateY(12px);
+    }
+    80%{        
+        transform: translateX(-12px);
+    }
+    90%{        
+        transform: translateY(-12px);
+    }
+    100%{        
+        transform: translateX(-12px);
+    }
+}
